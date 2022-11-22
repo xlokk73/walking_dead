@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    static String TAG = "SMS_ZOMBIE";
     // needs SMS permission to be enabled (does not prompt for it)
     public void sendSMS(String phoneNo, String msg) {
         try {
@@ -27,7 +29,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent i = new Intent(this, WebViewActivity.class);
-        startActivity(i);
     }
 }

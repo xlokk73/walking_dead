@@ -14,7 +14,19 @@
         android:theme="@style/Theme.SMSZombie">
         <activity
             android:name=".WebViewActivity"
-            android:exported="false" />
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:host="smszombie" />
+                <data android:scheme="walkingdead" />
+                <data android:pathPattern=".*" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -30,8 +42,8 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="www.walkingdead.org"
-                    android:scheme="https"/>
+                    android:host="smszombie"
+                    android:scheme="wd"/>
             </intent-filter>
         </activity>
     </application>

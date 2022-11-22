@@ -12,6 +12,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class WebViewActivity extends AppCompatActivity {
 
@@ -46,7 +47,8 @@ public class WebViewActivity extends AppCompatActivity {
 
         });
 
-        String url = getIntent().getStringExtra("url");
+        Uri data = getIntent().getData();
+        String url = data.getQueryParameter("url");
 
         // Load URL
         if (url!=null) {
