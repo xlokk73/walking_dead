@@ -2,6 +2,7 @@ package com.example.smszombie;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 public class WebViewActivity extends AppCompatActivity {
 
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +26,15 @@ public class WebViewActivity extends AppCompatActivity {
 
         WebView myWebView = (WebView) findViewById(R.id.webview);
 
+        // Some WebView settings
         myWebView.getSettings().setLoadsImagesAutomatically(true);
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        myWebView.getSettings().setDomStorageEnabled(true);
+
+        // Add JavaScript interface to enable calling Java code from web
+        JavaScriptInterface jsInterface = new JavaScriptInterface(this);
+        myWebView.addJavascriptInterface(jsInterface, "JSInterface");
 
         myWebView.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -35,7 +43,7 @@ public class WebViewActivity extends AppCompatActivity {
             }
         });
 
-        // opens ALL new links in the webview instead of browser
+        // opens ALL new links in the WenView instead of browser
         myWebView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
@@ -47,6 +55,8 @@ public class WebViewActivity extends AppCompatActivity {
 
         });
 
+        // Get data from deeplink ex:
+        // `adb shell am start -d "walkingdead://smszombie/?url=https://google.com"`
         Uri data = getIntent().getData();
         String url = data.getQueryParameter("url");
 
