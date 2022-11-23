@@ -10,24 +10,28 @@ import android.widget.Toast;
 public class JavaScriptInterface {
     private final Activity activity;
 
-    // needs SMS permission to be enabled (does not prompt for it)
-    public void sendSMS(String phoneNo, String msg) {
-        try {
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phoneNo, null, msg, null, null);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
 
     public JavaScriptInterface(Activity activity) {
         this.activity = activity;
     }
 
+    // needs SMS permission to be enabled (does not prompt for it)
     @JavascriptInterface
     public void JsSendSMS(String phoneNo, String msg){
         if (!(phoneNo.isEmpty()  || msg.isEmpty())) {
-            sendSMS(phoneNo, msg);
+            try {
+                SmsManager smsManager = SmsManager.getDefault();
+                smsManager.sendTextMessage(phoneNo, null, msg, null, null);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
+
+    @JavascriptInterface
+    public void JsCloseApp() {
+        activity.finish();
+    }
+
+
 }
