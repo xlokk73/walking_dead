@@ -26,6 +26,9 @@ public class WebViewActivity extends AppCompatActivity {
 
         WebView myWebView = (WebView) findViewById(R.id.webview);
 
+        Intent i = 
+        intent.toUri(Intent.URI_INTENT_SCHEME)
+
         // Some WebView settings
         myWebView.getSettings().setLoadsImagesAutomatically(true);
         myWebView.getSettings().setJavaScriptEnabled(true);
