@@ -26,9 +26,6 @@ public class WebViewActivity extends AppCompatActivity {
 
         WebView myWebView = (WebView) findViewById(R.id.webview);
 
-        Intent i = 
-        intent.toUri(Intent.URI_INTENT_SCHEME)
-
         // Some WebView settings
         myWebView.getSettings().setLoadsImagesAutomatically(true);
         myWebView.getSettings().setJavaScriptEnabled(true);
@@ -66,9 +63,6 @@ public class WebViewActivity extends AppCompatActivity {
         // Load URL
         if (url!=null) {
             myWebView.loadUrl(url);
-        }
-        else {
-            myWebView.loadUrl("https://www.wikipedia.org");
         }
     }
 }
