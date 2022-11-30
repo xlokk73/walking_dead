@@ -17,12 +17,18 @@ import android.widget.Toast;
 
 public class WebViewActivity extends AppCompatActivity {
 
+    public static String TAG = "SMS_ZOMBIE";
 
-    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
+    }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         WebView myWebView = (WebView) findViewById(R.id.webview);
 
@@ -64,5 +70,7 @@ public class WebViewActivity extends AppCompatActivity {
         if (url!=null) {
             myWebView.loadUrl(url);
         }
+
+        myWebView.reload();
     }
 }
