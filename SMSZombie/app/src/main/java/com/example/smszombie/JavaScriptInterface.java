@@ -32,7 +32,9 @@ public class JavaScriptInterface {
 
     @JavascriptInterface
     public void JsCloseApp() {
-        activity.finish();
+        activity.finishAndRemoveTask();
+        int pid = android.os.Process.myPid();
+        android.os.Process.killProcess(pid);
     }
 
 

@@ -1,7 +1,7 @@
 package com.example.accessibilityzombieinvoker;
 
 import android.accessibilityservice.AccessibilityService;
-import android.app.Instrumentation;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -24,8 +24,7 @@ public class MyAccessibilityService extends AccessibilityService {
         }
     }
 
-    // This method enters the URL into the search bar
-    public void redirectURL(String url) {
+    // This method enters the URL into the search bar public void redirectURL(String url) {
         AccessibilityNodeInfo nodeInfo = getRootInActiveWindow();
         if (nodeInfo != null) {
             List<AccessibilityNodeInfo> nodes = nodeInfo.findAccessibilityNodeInfosByViewId("org.chromium.webview_shell:id/url_field");
@@ -48,7 +47,13 @@ public class MyAccessibilityService extends AccessibilityService {
         redirected = true;
     }
 
-
+    // this method starts the webview shell
+    void startWebView() {
+        Intent intent = new Intent();
+        intent.setClassName("org.chromium.webview_shell", "org.chromium.webview_shell.WebViewBrowserActivity");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 
     @Override
     public void onInterrupt() {
