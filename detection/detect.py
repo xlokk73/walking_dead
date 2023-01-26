@@ -48,24 +48,38 @@ def get_calling_package(string):
     package = string.split("callingPackage: ")[1].split(";")[0].strip()
     return package
 
+# This function finds the intent that navigated the browser
+def find_intent(package):
+    intents = subprocess.check_output(['adb', 'shell', 'dumpsys', 'package', package]).decode('utf-8').strip()
+    for intent in intents.split("intent-filter"):
+        if "walkingdead" in intent:
+            print(intent)
+
 # This function extracts the intent information from the line
+# case 1: deep link is navigated to from browser
+# example line: 01-25 14:04:48.976   528  3274 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=walkingdead://smszombie/?url=http://192.168.1.134:1313 flg=0x14000000 cmp=com.example.smszombie/.WebViewActivity (has extras)} from uid 10121"
+
+# case 2: deep link is navigated to from app
+# example line: "01-25 13:07:54.341   528  2776 W ActivityTaskManager: Background activity start [callingPackage: com.metasploit.stage; callingUid: 10147; isCallingUidForeground: false; callingUidHasAnyVisibleWindow: false; callingUidProcState: SERVICE; isCallingUidPersistentSystemProcess: false; realCallingUid: 10147; isRealCallingUidForeground: false; realCallingUidHasAnyVisibleWindow: false; realCallingUidProcState: SERVICE; isRealCallingUidPersistentSystemProcess: false; originatingPendingIntent: null; isBgStartWhitelisted: false; intent: Intent { act=android.intent.action.VIEW dat=walkingdead://smszombie/?url=http://192.168.1.134:1313 flg=0x10000000 cmp=com.example.smszombie/.WebViewActivity }; callerApp: ProcessRecord{4302d2d 3323:com.metasploit.stage/u0a147}]"
 def extract_intent_info(line):
-    zombie_app = get_deep_link_handler(line)
-
-    # case 1: deep link is navigated to from browser
-    if (last_char_nums(line)):
-        print("[INFO] case: last char is a number")
-        uid = get_uid(line)
-        package = get_package_from_uid(uid)
-
-    # case 2: deep link is navigated to from app
+    if "callingUid" in line:
+        match = re.search("callingUid: (\d+)", line)
+        sender_uid = match.group(1)
     else:
-        print("[INFO] case: last char is not a number")
-        package = get_calling_package(line)
+        match = re.search("from uid (\d+)", line)
+        sender_uid = match.group(1)
 
-    
-    print("Caller: " + package)
-    print("Zombie App: " + zombie_app)
+    # Extract the deeplink
+    match = re.search("dat=([^\s]+)", line)
+    deeplink = match.group(1)
+
+    # Extract the package name
+    match = re.search("cmp=([^/]+)", line)
+    package_name = match.group(1)
+
+    print("Sender UID: ", sender_uid)
+    print("Deeplink: ", deeplink)
+    print("Package Name: ", package_name)
 
 # Start the logcat process
 logcat = subprocess.Popen(['adb', 'logcat'], stdout=subprocess.PIPE)
