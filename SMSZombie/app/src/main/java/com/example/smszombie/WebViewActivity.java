@@ -8,6 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.webkit.JsResult;
@@ -19,6 +22,8 @@ import android.widget.Toast;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import dalvik.system.DexClassLoader;
 
@@ -32,11 +37,31 @@ public class WebViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_web_view);
     }
 
+
+
     @SuppressLint({"SetJavaScriptEnabled", "JavascriptInterface"})
     @Override
     protected void onResume() {
         super.onResume();
 
+        new CountDownTimer(5000, 1000) {
+            // 5000 is the total duration of the timer in milliseconds
+            // 1000 is the interval at which onTick() will be called in milliseconds
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                // Do nothing for now
+            }
+            @Override
+            public void onFinish() {
+                loadWebView();
+            }
+        }.start();
+
+    }
+
+    @SuppressLint("JavascriptInterface")
+    public void loadWebView() {
         WebView myWebView = (WebView) findViewById(R.id.webview);
 
         // Some WebView settings

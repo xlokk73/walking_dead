@@ -57,7 +57,7 @@ def dump_dex(adb_device, package):
     script.post({"type": "path", "payload": package_path})
 
     # prevent the python script from terminating
-    input()
+    #input()
 
 # This function checks whether the last character in the line is a number
 def last_char_nums(line):
