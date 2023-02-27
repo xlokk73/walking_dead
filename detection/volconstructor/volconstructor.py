@@ -175,6 +175,7 @@ def main():
                 print("[INFO] " + line)
                 sender_package, handler_package = extract_intent_info(line)
                 dump_dex(adb_device, handler_package)
+                dump_dex(adb_device, sender_package)
                 download(get_path(adb_device, sender_package))
                 download(get_path(adb_device, handler_package))
 

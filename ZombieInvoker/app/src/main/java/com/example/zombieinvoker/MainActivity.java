@@ -18,18 +18,8 @@ public class MainActivity extends AppCompatActivity {
         // Redirect to deeplink via intent
         Intent viewIntent =
                 new Intent("android.intent.action.VIEW",
-                        Uri.parse("walkingdead://smszombie/?url=http://192.168.1.134:1313"));
+                        Uri.parse("walkingdead://clipboardzombie/?url=http://192.168.1.134:1313"));
         startActivity(viewIntent);
-
-        // Redirect to deeplink via Chrome 1
-//        String urlString = "http://192.168.1.134:1312";
-//        Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(urlString));
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        intent.setPackage("com.android.chrome");
-//        try {
-//            startActivity(intent);
-//        } catch (ActivityNotFoundException ignored) {
-//        }
 
     }
 }
