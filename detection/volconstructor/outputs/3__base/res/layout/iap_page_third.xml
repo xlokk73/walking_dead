@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/layout_guide_third" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/ivFirstImage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:src="@mipmap/third_item_1" android:layout_alignBottom="@id/ivFifthImage" android:layout_centerHorizontal="true" />
+    <ImageView android:id="@id/ivSecondImage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/third_item_2" android:layout_centerInParent="true" />
+    <ImageView android:id="@id/ivThirdImage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14.0dip" android:src="@mipmap/third_item_3" android:layout_alignTop="@id/ivSecondImage" android:layout_marginStart="42.0dip" android:layout_alignStart="@id/ivSecondImage" />
+    <ImageView android:id="@id/ivFourthImage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dip" android:src="@mipmap/third_item_4" android:layout_alignTop="@id/ivSecondImage" android:layout_marginStart="19.0dip" android:layout_alignStart="@id/ivSecondImage" />
+    <ImageView android:id="@id/ivFifthImage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="18.0dip" android:src="@mipmap/third_item_5" android:layout_alignBottom="@id/ivSecondImage" android:layout_marginEnd="24.0dip" android:layout_alignEnd="@id/ivSecondImage" />
+</RelativeLayout>

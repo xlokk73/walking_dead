@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="dialog_msg_delete_more_configs_confirm">
+        <item quantity="other">নির্বাচিত আইটেমগুলি মুছবেন?</item>
+        <item quantity="one">নির্বাচিত আইটেম মুছবেন?</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%dটি নতুন বিজ্ঞপ্তি</item>
+        <item quantity="one">%dটি নতুন বিজ্ঞপ্তি</item>
+    </plurals>
+    <plurals name="save_config_menu_number_of_items_selected">
+        <item quantity="other">%1$d নির্বাচিত</item>
+        <item quantity="zero">%1$d নির্বাচিত</item>
+        <item quantity="one">%1$d নির্বাচিত</item>
+    </plurals>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="dialog_msg_delete_more_configs_confirm">
+        <item quantity="other">Usunąć wybrane elementy?</item>
+        <item quantity="one">Usunąć wybrany element?</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%d nowego powiadomienia</item>
+        <item quantity="one">%d nowe powiadomienie</item>
+        <item quantity="few">%d nowe powiadomienia</item>
+        <item quantity="many">%d nowych powiadomień</item>
+    </plurals>
+    <plurals name="save_config_menu_number_of_items_selected">
+        <item quantity="other">Wybrane: %1$d</item>
+        <item quantity="zero">Wybrane: %1$d</item>
+        <item quantity="one">Wybrane: %1$d</item>
+    </plurals>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/padding_space" android:layout_width="fill_parent" android:layout_height="16.0dip" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/padding_space" android:layout_alignParentStart="true">
+        <ImageView android:gravity="center_vertical" android:id="@id/rewarded_ad_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_play_ad" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+        <TextView android:textColor="@color/md_black_1000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dialog_msg_watch_ad" android:layout_centerVertical="true" android:layout_marginStart="16.0dip" android:layout_toEndOf="@id/rewarded_ad_icon" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</RelativeLayout>

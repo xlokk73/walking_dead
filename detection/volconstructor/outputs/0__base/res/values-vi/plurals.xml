@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="dialog_msg_delete_more_configs_confirm">
+        <item quantity="other">Xóa các mục đã chọn?</item>
+        <item quantity="one">Xóa mục đã chọn?</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%d thông báo mới</item>
+        <item quantity="one">%d thông báo mới</item>
+    </plurals>
+    <plurals name="save_config_menu_number_of_items_selected">
+        <item quantity="other">%1$d mục được chọn</item>
+        <item quantity="zero">%1$d mục được chọn</item>
+        <item quantity="one">%1$d mục được chọn</item>
+    </plurals>
+</resources>

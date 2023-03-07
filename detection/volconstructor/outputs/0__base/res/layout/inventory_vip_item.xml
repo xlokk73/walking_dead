@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:tag="layout/inventory_vip_item_0" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:tag="binding_1" android:paddingTop="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="2.0dip" android:layout_marginStart="4.0dip" android:layout_marginEnd="4.0dip">
+        <ImageView android:layout_gravity="center" android:id="@id/checkbox_item" android:tag="binding_2" android:layout_width="36.0dip" android:layout_height="48.0dip" android:scaleType="centerInside" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_toStartOf="@id/sku_price" android:layout_toEndOf="@id/checkbox_item">
+            <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/md_grey_900" android:id="@id/sku_name" android:tag="binding_3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" android:fontFamily="sans-serif-medium" android:textDirection="locale" android:layout_marginEnd="8.0dip" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/md_grey_700" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/sku_desc" android:tag="binding_4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:textDirection="locale" android:layout_marginEnd="8.0dip" />
+        </LinearLayout>
+        <LinearLayout android:gravity="end" android:orientation="vertical" android:id="@id/sku_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginEnd="4.0dip" android:layout_alignParentEnd="true">
+            <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/md_grey_800" android:tag="binding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:textDirection="locale" />
+            <TextView android:textSize="10.0sp" android:textColor="@color/md_grey_700" android:gravity="end" android:id="@id/price_entity" android:tag="binding_6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:textDirection="locale" />
+        </LinearLayout>
+        <View android:id="@id/guide_line" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_alignParentStart="true" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <TextView android:textSize="10.0sp" android:textColor="@color/white" android:id="@id/sku_banner" android:tag="binding_7" android:background="@drawable/iap_vip_banner_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/purchase_banner_hint" android:paddingStart="10.0dip" android:paddingEnd="10.0dip" />
+</FrameLayout>

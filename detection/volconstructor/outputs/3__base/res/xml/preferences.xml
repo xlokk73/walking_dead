@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/preference_category_title_default_settings" android:key="preference_default">
+        <Preference android:icon="@mipmap/ic_settings_delay" android:title="@string/preference_default_action_delay" android:key="prefs_action_delay" android:summary="unknown" android:defaultValue="@integer/def_action_delay" />
+        <Preference android:icon="@mipmap/ic_settings_cycle_time" android:title="@string/preference_default_action_cycle_times" android:key="prefs_action_cycle_times" android:summary="unknown" android:defaultValue="@integer/def_action_cycle_times" />
+        <Preference android:icon="@mipmap/ic_settings_random_distance" android:title="@string/preference_default_tap_duration" android:key="prefs_tap_duration" android:summary="unknown" android:defaultValue="@integer/def_tap_duration" />
+        <Preference android:icon="@mipmap/ic_settings_swipe" android:title="@string/preference_default_swipe_duration" android:key="prefs_swipe_duration" android:summary="unknown" android:defaultValue="@integer/def_swipe_duration" />
+        <Preference android:icon="@mipmap/ic_settings_pinch" android:title="@string/preference_default_pinch_duration" android:key="prefs_pinch_duration" android:summary="unknown" android:defaultValue="@integer/def_pinch_duration" />
+    </PreferenceCategory>
+    <PreferenceCategory android:layout="@layout/preference_divider" />
+    <PreferenceCategory android:title="@string/preference_category_title_start_script" android:key="preference_delayed_start_settings">
+        <Preference android:title="@string/preference_summary_delay_start_timer" android:key="prefs_delay_start_time" android:summary="unknown" android:defaultValue="@integer/def_delay_start" />
+    </PreferenceCategory>
+    <PreferenceCategory android:layout="@layout/preference_divider" />
+    <PreferenceCategory android:title="@string/preference_category_title_loop_settings" android:key="preference_loop_settings">
+        <Preference android:title="@string/preference_loop_delay" android:key="prefs_loop_delay" android:summary="unknown" android:defaultValue="@integer/def_loop_delay" />
+        <Preference android:title="@string/preference_loop_after" android:key="prefs_loop_after" android:summary="unknown" android:defaultValue="@integer/def_loop_times" />
+    </PreferenceCategory>
+    <PreferenceCategory android:layout="@layout/preference_divider" />
+    <PreferenceCategory android:title="@string/preference_category_title_anti_detection" android:key="preference_general">
+        <Preference android:title="@string/preference_anti_random_interval" android:key="prefs_random_interval" android:summary="unknown" android:defaultValue="@integer/def_random_interval" />
+        <Preference android:title="@string/preference_anti_random_duration" android:key="prefs_random_duration" android:summary="unknown" android:defaultValue="@integer/def_random_duration" />
+        <com.rise.automatic.autoclicker.clicker.ui.views.CustomSeekBarPreference android:max="150" android:title="@string/preference_anti_random_distance" android:selectable="false" android:key="prefs_tap_random_distance" android:summary="@string/preference_summary_random_distance_info" android:defaultValue="@integer/def_random_distance" />
+    </PreferenceCategory>
+    <PreferenceCategory android:layout="@layout/preference_divider" />
+    <PreferenceCategory android:title="@string/preference_category_title_other" android:key="preference_about">
+        <com.rise.automatic.autoclicker.clicker.ui.views.CustomProVersionPreference android:layout="@layout/preference_pro_version" android:key="prefs_pro_version" />
+        <Preference android:title="@string/preference_other_restore_defaults" android:key="prefs_restore" android:summary="@string/preference_summary_restore_info" />
+        <Preference android:title="@string/preference_other_translate_app" android:key="prefs_translate" android:summary="@string/translate_summary" />
+        <Preference android:title="@string/preference_troubleshooting" android:key="prefs_revoke_permission" android:summary="@string/preference_summary_troubleshooting" />
+        <Preference android:title="@string/preference_send_feedback" android:key="prefs_feedback" android:summary="@string/preference_summary_send_feedback" />
+        <Preference android:title="@string/preference_change_language" android:key="prefs_lang" />
+        <Preference android:title="@string/preference_share" android:key="prefs_share_app" android:summary="@string/preference_summary_share" />
+        <Preference android:title="@string/preference_other_about_app" android:key="prefs_about" android:summary="v 1.01" />
+    </PreferenceCategory>
+</PreferenceScreen>

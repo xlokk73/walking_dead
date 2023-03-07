@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="dialog_msg_delete_more_configs_confirm">
+        <item quantity="other">선택한 항목을 삭제할까요?</item>
+        <item quantity="one">선택한 항목을 삭제할까요?</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">새 알림 %d개</item>
+        <item quantity="one">새 알림 %d개</item>
+    </plurals>
+    <plurals name="save_config_menu_number_of_items_selected">
+        <item quantity="other">%1$d개 선택됨</item>
+        <item quantity="zero">%1$d개 선택됨</item>
+        <item quantity="one">%1$d개 선택됨</item>
+    </plurals>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.rise.automatic.autoclicker.clicker.ui.views.PersonalizationSeekBarPreference android:icon="@mipmap/ic_custom_size" android:max="100" android:title="@string/customization_card_control_panel_size" android:selectable="false" android:key="prefs_custom_ui_control_bar_size" android:defaultValue="@integer/def_custom_ui_control_bar_size" />
+    <com.rise.automatic.autoclicker.clicker.ui.views.PersonalizationSeekBarPreference android:icon="@mipmap/ic_custom_alpha" android:max="100" android:title="@string/customization_card_control_panel_transparency" android:selectable="false" android:key="prefs_custom_ui_control_bar_alpha" android:defaultValue="@integer/def_custom_ui_control_bar_alpha" />
+    <com.rise.automatic.autoclicker.clicker.ui.views.PersonalizationSwitchPreference android:icon="@mipmap/ic_custom_rotation" android:title="@string/customization_card_control_panel_orientation" android:selectable="false" android:key="prefs_custom_ui_control_bar_rotation" android:defaultValue="false" />
+    <com.rise.automatic.autoclicker.clicker.ui.views.PersonalizationSwitchPreference android:icon="@mipmap/ic_custom_timer" android:title="@string/customization_card_control_panel_timer_visible" android:selectable="false" android:key="prefs_custom_ui_show_timer" android:defaultValue="true" />
+    <com.rise.automatic.autoclicker.clicker.ui.views.PersonalizationSwitchPreference android:icon="@mipmap/ic_custom_start_btn" android:title="@string/customization_card_control_panel_add_start_btn" android:selectable="false" android:key="prefs_custom_ui_add_start_button" android:defaultValue="false" />
+    <com.rise.automatic.autoclicker.clicker.ui.views.PersonalizationSwitchPreference android:icon="@mipmap/ic_custom_keep_screen_on" android:title="@string/customization_card_control_panel_keep_screen_on" android:selectable="false" android:key="prefs_custom_ui_keep_screen_on" android:defaultValue="false" />
+</PreferenceScreen>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@mipmap/ic_menu_star" android:id="@id/action_rate_us" android:title="@string/rating_dialog_title" app:showAsAction="ifRoom" />
+    <item android:id="@id/action_personal_ui" android:title="@string/save_config_menu_action_personalization" app:actionLayout="@layout/custom_action_item_layout" app:showAsAction="ifRoom" />
+    <item android:icon="@mipmap/ic_menu_save" android:id="@id/action_settings" android:title="@string/activity_config" app:showAsAction="ifRoom" />
+</menu>

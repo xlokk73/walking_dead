@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:focusable="true" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" style="?actionButtonStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_menu_personal_ui" />
+    <View android:layout_gravity="end|center|top" android:id="@id/badge_view" android:background="@drawable/badge_background" android:visibility="gone" android:layout_width="@dimen/badge_size" android:layout_height="@dimen/badge_size" android:layout_marginTop="9.0dip" android:layout_marginEnd="-1.0dip" />
+</FrameLayout>

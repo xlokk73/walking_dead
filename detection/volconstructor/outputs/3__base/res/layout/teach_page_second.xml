@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:zyf="http://schemas.android.com/apk/res-auto">
+    <TextView android:textAppearance="@style/TextAppearance.AppCompat.Body2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/teach_summary_first" />
+    <View android:layout_width="fill_parent" android:layout_height="8.0dip" />
+    <com.rise.automatic.autoclicker.clicker.ui.views.RunningControlPanel android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" zyf:clickable="false" zyf:need_transparency="false" />
+    <View android:layout_width="fill_parent" android:layout_height="8.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="38.0dip">
+        <LinearLayout android:theme="@style/RunningControlBarHelpIcon" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_stop" />
+        </LinearLayout>
+        <TextView android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/running_control_bar_stop" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="38.0dip">
+        <LinearLayout android:theme="@style/RunningControlBarHelpIcon" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_pause_green" />
+        </LinearLayout>
+        <TextView android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/running_control_bar_pause" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="38.0dip">
+        <LinearLayout android:theme="@style/RunningControlBarHelpIcon" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_start_green" />
+        </LinearLayout>
+        <TextView android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/running_control_bar_resume" />
+    </LinearLayout>
+</LinearLayout>

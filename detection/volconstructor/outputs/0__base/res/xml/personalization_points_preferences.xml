@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.rise.automatic.autoclicker.clicker.ui.views.PersonalizationSeekBarPreference android:icon="@mipmap/ic_custom_size" android:max="100" android:title="@string/customization_card_control_panel_size" android:selectable="false" android:key="prefs_custom_ui_points_size" android:defaultValue="@integer/def_custom_ui_points_size" />
+    <com.rise.automatic.autoclicker.clicker.ui.views.PersonalizationSeekBarPreference android:icon="@mipmap/ic_custom_alpha" android:max="100" android:title="@string/customization_card_control_panel_transparency" android:selectable="false" android:key="prefs_custom_ui_points_alpha" android:defaultValue="@integer/def_custom_ui_points_alpha" />
+</PreferenceScreen>

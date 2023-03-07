@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:layout_width="fill_parent" android:layout_height="8.0dip" />
+    <TextView android:textSize="19.0sp" android:textColor="@color/md_black_1000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/running_control_bar_title" />
+    <View android:layout_width="fill_parent" android:layout_height="8.0dip" />
+    <com.rise.automatic.autoclicker.clicker.ui.base.WrapContentViewPager android:id="@id/teach_pager" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:overScrollMode="never" />
+    <com.lwj.widget.viewpagerindicator.ViewPagerIndicator android:layout_gravity="center_horizontal" android:id="@id/indicator_line" android:layout_width="50.0dip" android:layout_height="26.0dip" app:vpi_animation="true" app:vpi_default_color="#ffcdcdcd" app:vpi_distanceType="BY_LAYOUT" app:vpi_indicatorType="BEZIER" app:vpi_radius="3.0dip" app:vpi_selected_color="#ff004e66" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.afollestad.materialdialogs.internal.MDButton android:textColor="@color/colorPrimary" android:id="@id/buttonDefaultNegative" android:background="?android:selectableItemBackground" android:text="@string/dialog_action_got_it" android:layout_alignParentTop="true" android:layout_alignParentEnd="true" style="@style/MD_ActionButton.Text" />
+        <CheckBox android:textAppearance="@android:style/TextAppearance.Material.Small" android:id="@id/teach_dialog_dont_show" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dialog_msg_dont_show" android:layout_centerVertical="true" android:layout_toStartOf="@id/buttonDefaultNegative" android:layout_alignParentStart="true" />
+    </RelativeLayout>
+</LinearLayout>

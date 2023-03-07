@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:zyf="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="38.0dip">
+        <LinearLayout android:theme="@style/RunningControlBarHelpIcon" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/gesture_editor_add_b" />
+        </LinearLayout>
+        <View android:layout_width="10.0dip" android:layout_height="fill_parent" />
+        <TextView android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gesture_editor_insert_info" />
+    </LinearLayout>
+    <View android:layout_width="fill_parent" android:layout_height="6.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="38.0dip">
+        <LinearLayout android:theme="@style/RunningControlBarHelpIcon" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/gesture_editor_editor_b" />
+        </LinearLayout>
+        <View android:layout_width="10.0dip" android:layout_height="fill_parent" />
+        <TextView android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gesture_editor_modify_info" />
+    </LinearLayout>
+    <View android:layout_width="fill_parent" android:layout_height="6.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="38.0dip">
+        <LinearLayout android:theme="@style/RunningControlBarHelpIcon" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/gesture_editor_replace_b" />
+        </LinearLayout>
+        <View android:layout_width="10.0dip" android:layout_height="fill_parent" />
+        <TextView android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gesture_editor_replace_info" />
+    </LinearLayout>
+    <View android:layout_width="fill_parent" android:layout_height="6.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="38.0dip">
+        <LinearLayout android:theme="@style/RunningControlBarHelpIcon" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/gesture_editor_delete_b" />
+        </LinearLayout>
+        <View android:layout_width="10.0dip" android:layout_height="fill_parent" />
+        <TextView android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gesture_editor_delete_info" />
+    </LinearLayout>
+    <View android:layout_width="fill_parent" android:layout_height="6.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="38.0dip">
+        <LinearLayout android:theme="@style/RunningControlBarHelpIcon" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/gesture_editor_done_b" />
+        </LinearLayout>
+        <View android:layout_width="10.0dip" android:layout_height="fill_parent" />
+        <TextView android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gesture_editor_done_info" />
+    </LinearLayout>
+</LinearLayout>

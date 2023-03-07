@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@mipmap/ic_action_import" android:id="@id/action_import" android:title="@string/save_config_menu_action_import" app:showAsAction="ifRoom" />
+    <item android:icon="@mipmap/ic_action_select" android:id="@id/action_select" android:orderInCategory="100" android:title="@string/save_config_menu_action_select_title" app:showAsAction="ifRoom" />
+</menu>

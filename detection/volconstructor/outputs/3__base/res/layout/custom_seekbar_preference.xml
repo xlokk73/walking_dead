@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight" android:paddingEnd="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@android:id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/preference_icon_minWidth" />
+    <RelativeLayout android:paddingTop="6.0dip" android:paddingBottom="8.0dip" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingStart="16.0dip" android:paddingEnd="4.0dip">
+        <TextView android:textAppearance="@style/Preference_TextAppearanceMaterialSubhead" android:ellipsize="marquee" android:id="@android:id/title" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="?android:textColorSecondary" android:id="@android:id/summary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="4" android:layout_below="@android:id/title" android:layout_alignStart="@android:id/title" />
+        <androidx.preference.UnPressableLinearLayout android:gravity="center_vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@android:id/summary" android:layout_alignStart="@android:id/title">
+            <SeekBar android:id="@id/seekbar" android:background="@null" android:focusable="false" android:clickable="false" android:layout_width="0.0dip" android:layout_height="40.0dip" android:layout_weight="1.0" android:paddingStart="8.0dip" android:paddingEnd="8.0dip" />
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="15.0sp" android:ellipsize="marquee" android:gravity="center|right" android:id="@id/seekbar_value" android:fadingEdge="horizontal" android:layout_width="45.0dip" android:layout_height="wrap_content" android:singleLine="true" android:fontFamily="sans-serif-condensed" />
+        </androidx.preference.UnPressableLinearLayout>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="160.0px" android:layout_height="160.0px">
+        <com.rise.automatic.autoclicker.clicker.ui.views.CircleView android:id="@id/circle_view" android:layout_width="160.0px" android:layout_height="160.0px" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_circle_view" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</LinearLayout>

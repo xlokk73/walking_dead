@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layoutDirection="ltr"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="?android:textColorSecondary" android:id="@android:id/summary" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_tutorial_info" android:maxLines="4" />
+    <RelativeLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/tutorial" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_tutorial" android:layout_alignParentTop="true" android:layout_alignParentStart="true" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="113.0dip" android:text="@string/accessibility_service_name" android:layout_alignParentTop="true" android:layout_marginStart="130.0dip" android:layout_alignParentStart="true" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="152.0dip" android:text="@string/permission_tutorial_on" android:layout_alignParentTop="true" android:layout_marginStart="115.0dip" android:layout_alignParentStart="true" />
+        <TextView android:textSize="13.0sp" android:textColor="@color/white" android:id="@id/accessibility" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:text="@string/permission_tutorial_accessibility" android:layout_alignParentTop="true" android:layout_marginStart="11.0dip" android:layout_alignParentStart="true" app:layout_anchor="@id/tutorial" />
+        <TextView android:textSize="12.0sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="66.0dip" android:text="@string/permission_tutorial_installed_services" android:layout_alignParentTop="true" android:layout_marginStart="11.0dip" android:layout_alignParentStart="true" />
+        <LinearLayout android:orientation="vertical" android:id="@id/linearLayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="146.0dip" android:layout_below="@id/accessibility" android:layout_marginStart="11.0dip" android:layout_alignParentStart="true">
+            <TextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/md_black_1000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/accessibility_service_name" />
+            <TextView android:textSize="10.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permission_tutorial_off" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

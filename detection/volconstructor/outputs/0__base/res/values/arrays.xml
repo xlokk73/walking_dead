@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ar">
+        <item>mohammad shahoud</item>
+        <item>Issam</item>
+        <item>Rabie Mohammedi</item>
+        <item>Ma7moud7gazy</item>
+        <item>MAXPOTER</item>
+        <item>Soheab</item>
+        <item>Amer Almoufrj</item>
+        <item>mofizul islam</item>
+        <item>Youssefbourahmoun</item>
+        <item>Abderrahmane</item>
+    </string-array>
+    <string-array name="array_guide_tips">
+        <item>@string/purchase_no_ads</item>
+        <item>@string/purchase_config_unlimited</item>
+        <item>@string/purchase_action_unlimited</item>
+    </string-array>
+    <string-array name="de">
+        <item>Freakinkat</item>
+        <item>MartinDerTolle</item>
+        <item>Levin Kaan Yilmaz</item>
+        <item>Ben hinner</item>
+        <item>Depleuer</item>
+        <item>Felix</item>
+        <item>Janek</item>
+    </string-array>
+    <string-array name="el">
+        <item>Andrew</item>
+    </string-array>
+    <string-array name="es">
+        <item>Matt</item>
+        <item>RicardoGraal</item>
+        <item>Joan</item>
+        <item>Jesus</item>
+        <item>Carlos</item>
+        <item>Stephano615</item>
+        <item>Sergio Vela</item>
+        <item>Izan</item>
+        <item>José Luis</item>
+    </string-array>
+    <string-array name="fr">
+        <item>Vanwormhoudt</item>
+        <item>Mezque</item>
+        <item>ObviousLag</item>
+        <item>Lamizor</item>
+        <item>Edward</item>
+    </string-array>
+    <string-array name="hu">
+        <item>Márton Pajer</item>
+    </string-array>
+    <string-array name="ind">
+        <item>Christian Yurianja</item>
+        <item>ACEP SURYANA</item>
+        <item>WIDI ANWAR</item>
+        <item>Yeldi sitohang</item>
+        <item>Nazier</item>
+        <item>Jerry</item>
+        <item>Ppypo</item>
+        <item>Yhony Mahendra</item>
+        <item>jariang</item>
+        <item>Arjuna Dimas</item>
+        <item>TranslateBotXoXo</item>
+        <item>Vito</item>
+        <item>Muhammad Restu</item>
+    </string-array>
+    <string-array name="it">
+        <item>Luigi Ferioli</item>
+        <item>Davide</item>
+        <item>Manuel</item>
+    </string-array>
+    <string-array name="ja">
+        <item>arara</item>
+        <item>yuki</item>
+        <item>gunigal</item>
+        <item>41kun</item>
+        <item>えもん</item>
+        <item>髙橋海斗</item>
+        <item>Akari Yoshida</item>
+        <item>yuzupon</item>
+        <item>sky</item>
+        <item>PRAUDA</item>
+        <item>sioyakichicken</item>
+        <item>弋小草</item>
+        <item>とあるヲタク</item>
+    </string-array>
+    <string-array name="ko">
+        <item>영준</item>
+        <item>뀨뀨</item>
+        <item>민트한민트</item>
+        <item>아휴</item>
+        <item>Alg</item>
+        <item>뚜리</item>
+        <item>잡다한씨</item>
+        <item>햄토리</item>
+        <item>x410s</item>
+    </string-array>
+    <string-array name="language_list">
+        <item>@string/translator_language_picker_title</item>
+        <item>العربية</item>
+        <item>हिन्दी</item>
+        <item>Deutsch</item>
+        <item>Ελληνικά</item>
+        <item>English</item>
+        <item>Español</item>
+        <item>Français</item>
+        <item>Indonesia</item>
+        <item>Italiano</item>
+        <item>日本語</item>
+        <item>한국어</item>
+        <item>Polski</item>
+        <item>Português</item>
+        <item>Русский</item>
+        <item>ไทย</item>
+        <item>Türkçe</item>
+        <item>Tiếng Việt</item>
+        <item>@string/translator_more_language_title</item>
+    </string-array>
+    <string-array name="language_select">
+        <item>@string/translator_system_language_title</item>
+        <item>العربية</item>
+        <item>हिन्दी</item>
+        <item>Deutsch</item>
+        <item>Ελληνικά</item>
+        <item>English</item>
+        <item>Español</item>
+        <item>Français</item>
+        <item>Indonesia</item>
+        <item>Italiano</item>
+        <item>日本語</item>
+        <item>한국어</item>
+        <item>Polski</item>
+        <item>Português (Brasil)</item>
+        <item>Português (Portugal)</item>
+        <item>Русский</item>
+        <item>ไทย</item>
+        <item>Türkçe</item>
+        <item>Tiếng Việt</item>
+        <item>简体中文</item>
+        <item>繁體中文</item>
+    </string-array>
+    <string-array name="language_select_values">
+        <item>auto</item>
+        <item>ar</item>
+        <item>hi</item>
+        <item>de</item>
+        <item>el</item>
+        <item>en</item>
+        <item>es</item>
+        <item>fr</item>
+        <item>in</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>ko</item>
+        <item>pl</item>
+        <item>pt</item>
+        <item>ru</item>
+        <item>th</item>
+        <item>tr</item>
+        <item>vi</item>
+        <item>zh</item>
+        <item>zh-hant</item>
+    </string-array>
+    <string-array name="language_web_list">
+        <item>https://poeditor.com/join/project/FLEj8bSmD0</item>
+        <item>https://poeditor.com/join/project/KWqCEbmmF7</item>
+        <item>https://poeditor.com/join/project/AiwpsvLd8l</item>
+        <item>https://poeditor.com/join/project/oQAkJv57Mw</item>
+        <item>https://poeditor.com/join/project/ehQOWNd37s</item>
+        <item>https://poeditor.com/join/project/G7UbMvyoJU</item>
+        <item>https://poeditor.com/join/project/IealrLTXZw</item>
+        <item>https://poeditor.com/join/project/IUk6TWg1gO</item>
+        <item>https://poeditor.com/join/project/4qlChsMAZs</item>
+        <item>https://poeditor.com/join/project/ecreGaRndk</item>
+        <item>https://poeditor.com/join/project/X0lTrcqlYX</item>
+        <item>https://poeditor.com/join/project/KotIvaQDaF</item>
+        <item>https://poeditor.com/join/project/YGeAYKhEcq</item>
+        <item>https://poeditor.com/join/project/CrftRJD2yU</item>
+        <item>https://poeditor.com/join/project/FVNmsyttQp</item>
+        <item>https://poeditor.com/join/project/eMUY4UmM7z</item>
+        <item>https://poeditor.com/join/project/6cAr6krh7s</item>
+    </string-array>
+    <string-array name="pl">
+        <item>Xmarcinmarcin</item>
+        <item>Peter</item>
+        <item>Joan</item>
+        <item>Digital_J</item>
+        <item>Yonek</item>
+        <item>Maksymilian Biesiekirski</item>
+        <item>Paweł</item>
+        <item>Ramzes</item>
+    </string-array>
+    <string-array name="pt">
+        <item>Lucas Silva Cruz</item>
+        <item>Wildisley</item>
+        <item>Estevan Aquino</item>
+        <item>Peter</item>
+        <item>Alisson</item>
+        <item>Diogo</item>
+        <item>Phlavio</item>
+        <item>Wildisley</item>
+        <item>Vinicius</item>
+        <item>Roberto</item>
+        <item>Thiago Jado Chagas</item>
+        <item>Diego</item>
+        <item>Lucas Correia Hostalacio</item>
+        <item>Lucas Navas</item>
+        <item>Eduardo ribeiro</item>
+    </string-array>
+    <string-array name="ru">
+        <item>Filipp P.</item>
+        <item>Orange games</item>
+        <item>Ренат</item>
+        <item>Rahimzhan</item>
+        <item>Моніка</item>
+        <item>Alex</item>
+        <item>Попурей Павел</item>
+        <item>Andrey</item>
+        <item>FireFall_</item>
+    </string-array>
+    <string-array name="th">
+        <item>Kritsadakron Sangsuwon</item>
+        <item>Tle</item>
+        <item>Thorn Taepaisitphongse</item>
+        <item>Kanogporn</item>
+        <item>พรพิสุทธิ</item>
+        <item>Thorn Taepaisitphongse</item>
+        <item>Panida Watanachai</item>
+    </string-array>
+    <string-array name="tr">
+        <item>Gökhan Kalyoncu</item>
+        <item>Talha Kaya</item>
+        <item>Ali</item>
+        <item>Alpay Samet Genç</item>
+        <item>Mlem milos</item>
+    </string-array>
+    <string-array name="translate_language">
+        <item>العربية</item>
+        <item>Deutsch</item>
+        <item>Ελληνικά</item>
+        <item>Español</item>
+        <item>Français</item>
+        <item>Indonesia</item>
+        <item>Italiano</item>
+        <item>日本語</item>
+        <item>한국어</item>
+        <item>Magyar</item>
+        <item>Polski</item>
+        <item>Português</item>
+        <item>Русский</item>
+        <item>ไทย</item>
+        <item>Türkçe</item>
+        <item>Tiếng Việt</item>
+        <item>繁體中文</item>
+    </string-array>
+    <string-array name="vi">
+        <item>Duong Vinh Toan</item>
+        <item>Thien Trang</item>
+        <item>Trường</item>
+    </string-array>
+    <string-array name="zh">
+        <item>瑞斯</item>
+    </string-array>
+</resources>
