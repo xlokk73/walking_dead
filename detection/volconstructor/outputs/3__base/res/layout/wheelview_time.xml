@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.rise.automatic.autoclicker.clicker.ui.views.wheelview.WheelView android:id="@id/date" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="2.0" />
-    <com.rise.automatic.autoclicker.clicker.ui.views.wheelview.WheelView android:id="@id/hour" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
-    <com.rise.automatic.autoclicker.clicker.ui.views.wheelview.WheelView android:id="@id/min" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
-    <com.rise.automatic.autoclicker.clicker.ui.views.wheelview.WheelView android:id="@id/sec" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
-</LinearLayout>

@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.rise.automatic.autoclicker.clicker.ui.views.draglistview.BoardView android:id="@id/board_view" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/scrollbar_shape_style"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

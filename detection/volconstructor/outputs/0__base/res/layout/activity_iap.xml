@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:tag="layout/activity_iap_0" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:card_view="http://schemas.android.com/apk/res-auto" xmlns:zhihu="http://schemas.android.com/apk/res-auto" xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.appcompat.widget.Toolbar android:id="@id/toolbar" android:layout_width="fill_parent" android:layout_height="wrap_content" app:theme="@style/IAPTheme" />
-    <FrameLayout android:id="@id/container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/toolbar" />
-</RelativeLayout>

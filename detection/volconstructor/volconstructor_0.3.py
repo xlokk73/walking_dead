@@ -14,6 +14,7 @@ import sys
 DOWNLOAD_COUNT = 0
 MAX_LOGCAT_LINES = 10000
 ADB_DEVICE = adb.device()
+PACKAGE = ""
 
 ## Functions
 
@@ -34,7 +35,8 @@ def download(item):
     DOWNLOAD_COUNT += 1
 
 # Function to dump the dex files from the process
-def dump_dex(adb_device, package):
+def dump_dex(package):
+    global ADB_DEVICE
     device = frida.get_usb_device()
 
     print("[+] Waiting for process to start...")
@@ -55,25 +57,14 @@ def dump_dex(adb_device, package):
     script.load()
     package_path = "/data/user/0/" + package + "/dumps/"
     print("[+] Creating dump directory: " + package_path)
-    res = adb_device.shell("mkdir " + package_path)
+    res = ADB_DEVICE.shell("mkdir " + package_path)
     print("[+] Result: " + str(res))
     script.post({"type": "path", "payload": package_path})
-
-    # prevent the python script from terminating
-    #input()
 
 # This function checks whether the last character in the line is a number
 def last_char_nums(line):
     return re.search(r'\d+$', line)
 
-# This function checks whether the line contains a deep link
-def contains_deep_link(line):
-    if "walkingdead" in line:
-        return True
-    # if "android.intent.action.VIEW" in line:
-    #     if "https://www.example.com" in line:
-    #         return True
-    # return False
 
 # This function extracts the UID from the line
 # example input: "ActivityTaskManager: START u0 {act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=walkingdead://smszombie/?url=http://192.168.1.134:1313 flg=0x14000000 cmp=com.example.smszombie/.WebViewActivity (has extras)} from uid 10121"
@@ -107,18 +98,13 @@ def get_calling_package(string):
     package = string.split("callingPackage: ")[1].split(";")[0].strip()
     return package
 
-# This function finds the intent that navigated the browser
-def find_intent(package):
-    intents = subprocess.check_output(['adb', 'shell', 'dumpsys', 'package', package]).decode('utf-8').strip()
-    for intent in intents.split("intent-filter"):
-        if "walkingdead" in intent:
-            print(intent)
 
 # This function extracts the file path from the line
-def get_path(device, package):
+def get_path(package):
+    global ADB_DEVICE
     pattern = r'^package:([^\s]+)='
 
-    line = device.shell("pm list packages -f | grep " + package)
+    line = ADB_DEVICE.shell("pm list packages -f | grep " + package)
 
     # Use regular expressions to extract the file path from the line
     match = re.search(pattern, line)
@@ -127,6 +113,7 @@ def get_path(device, package):
         print("[+] derived filepath: " + file_path)
         return file_path
 
+    print("ERROR: Could not extract file path from line: " + line)
     return None
 
 
@@ -166,6 +153,7 @@ def extract_intent_info(line):
     return sender_package, package_name    
 
 def find_handler(deeplink):
+    global PACKAGE
     print("[+] Finding handler for deeplink: " + deeplink)
     global ADB_DEVICE
     ADB_DEVICE.shell("logcat --clear")
@@ -176,9 +164,10 @@ def find_handler(deeplink):
             line = f.readline()
             if deeplink in line:
                 print("[+] Found line: " + line)
-                sender_package, package_name = extract_intent_info(line)
-                find_intent(sender_package)
-                break
+                sender_package, handler_package = extract_intent_info(line)
+                # return handler_package if the sender package is the package we are investigating
+                if sender_package == PACKAGE:
+                    return sender_package, handler_package
 
 def on_intent_message(message, data):
     if message["type"] == "send":
@@ -186,11 +175,18 @@ def on_intent_message(message, data):
         print("[+] Intent parameters:")
         print("[+] - Action: " + message["payload"]["action"])
         print("[+] - URI: " + message["payload"]["uri"])
-        find_handler(message["payload"]["uri"])
-        
+        sender_package, handler_package = find_handler(message["payload"]["uri"])
+        dump_dex(handler_package)
+        download(get_path(handler_package))
 
 # receives package that iwll be investiagted
 def main(package):
+    global PACKAGE
+    PACKAGE = package
+
+    # Download package apk
+    download(get_path(PACKAGE))
+
     script_file = "intent.js"
     # Load the script from the file
     with open(script_file, "r") as f:
@@ -198,7 +194,7 @@ def main(package):
 
     # Attach to the app and run the script
     device = frida.get_usb_device()
-    pid = device.spawn([package])
+    pid = device.spawn([PACKAGE])
     session = device.attach(pid)
     script = session.create_script(script_code)
 

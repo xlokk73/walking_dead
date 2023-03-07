@@ -1,4 +1,4 @@
-console.log("[*] Hello World!");
+console.log("[*] Dumping dex script loaded!");
 Java.perform(function(){
   let dexclassLoader = Java.use("dalvik.system.DexClassLoader");
   console.log("[*] Hooking DexFile.loadDex")
