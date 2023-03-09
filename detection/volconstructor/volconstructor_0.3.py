@@ -55,11 +55,7 @@ def dump_dex(package):
     script = session.create_script(open("script.js").read())
     script.on('message', on_message)
     script.load()
-    package_path = "/data/user/0/" + package + "/dumps/"
-    print("[+] Creating dump directory: " + package_path)
-    res = ADB_DEVICE.shell("mkdir " + package_path)
-    print("[+] Result: " + str(res))
-    script.post({"type": "path", "payload": package_path})
+
 
 # This function checks whether the last character in the line is a number
 def last_char_nums(line):
@@ -186,31 +182,32 @@ def main(package):
 
     # Download package apk
     download(get_path(PACKAGE))
+    dump_dex(PACKAGE)
 
-    script_file = "intent.js"
-    # Load the script from the file
-    with open(script_file, "r") as f:
-        script_code = f.read()
-
-    # Attach to the app and run the script
-    device = frida.get_usb_device()
-    pid = device.spawn([PACKAGE])
-    session = device.attach(pid)
-    script = session.create_script(script_code)
-
-    # Set the callback function to handle messages from the script
-    script.on("message", on_intent_message)
-
-    # Load and run the script
-    script.load()
-    device.resume(pid)
+#    script_file = "intent.js"
+#    # Load the script from the file
+#    with open(script_file, "r") as f:
+#        script_code = f.read()
+#
+#    # Attach to the app and run the script
+#    device = frida.get_usb_device()
+#    pid = device.spawn([PACKAGE])
+#    session = device.attach(pid)
+#    script = session.create_script(script_code)
+#
+#    # Set the callback function to handle messages from the script
+#    script.on("message", on_intent_message)
+#
+#    # Load and run the script
+#    script.load()
+#    device.resume(pid)
 
     # Wait for the script to finish
     input("[+] Press enter to detach...")
 
     # Detach from the app and clean up
-    session.detach()
-    device.kill(pid)
+#    session.detach()
+#    device.kill(pid)
 
 
 # Create an argument parser object
