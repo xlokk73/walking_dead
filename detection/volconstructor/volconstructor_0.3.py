@@ -11,18 +11,14 @@ import argparse
 import sys
 
 ## Global variables
-DOWNLOAD_COUNT = 0
+DOWNLOAD_COUNT = 0 
 MAX_LOGCAT_LINES = 10000
 ADB_DEVICE = adb.device()
 PACKAGE = ""
+API = None
 
 ## Functions
 
-# Function to handle messages from the script
-def on_message(message, data):
-    if(message['type'] == 'send'):
-        print("[+] Received: " + message['payload'])
-        download(message['payload'])
 
 # Function to download the file
 def download(item):
@@ -165,8 +161,13 @@ def find_handler(deeplink):
                 if sender_package == PACKAGE:
                     return sender_package, handler_package
 
-def on_intent_message(message, data):
-    if message["type"] == "send":
+# Function to handle messages from the script
+def on_message(message, data):
+    if(message["type"] == "dexToDump"):
+        print("[+] Received: " + message['payload'])
+        download(message['payload'])
+
+    elif (message["type"] == "intentInfo"):
         # Print the intent parameters received from the Frida script
         print("[+] Intent parameters:")
         print("[+] - Action: " + message["payload"]["action"])
@@ -175,39 +176,74 @@ def on_intent_message(message, data):
         dump_dex(handler_package)
         download(get_path(handler_package))
 
+        global ADB_DEVICE
+        device = frida.get_usb_device()
+
+        print("[+] Waiting for zombie process to start...")
+        # Wait for the process to start
+        while True:
+            try:
+                process = device.get_process(package)
+                print("[+] Zombie process found: " + str(process.pid))
+                break
+            except frida.ProcessNotFoundError:
+                
+                time.sleep(0.01)
+
+        # Attach to the process
+        session = device.attach(process.pid)
+        script = session.create_script(open("script.js").read())
+        script.on('message', on_message)
+        script.load()
+        api = script.exports
+        api.dump_dex()
+
+
+
 # receives package that iwll be investiagted
 def main(package):
     global PACKAGE
+    global API
     PACKAGE = package
+    
+    device = frida.get_usb_device()
 
-    # Download package apk
-    download(get_path(PACKAGE))
-    dump_dex(PACKAGE)
+#    # Download package apk and class from memory
+#    download(get_path(PACKAGE))
+#    dump_dex(PACKAGE)
 
-#    script_file = "intent.js"
-#    # Load the script from the file
-#    with open(script_file, "r") as f:
-#        script_code = f.read()
-#
-#    # Attach to the app and run the script
-#    device = frida.get_usb_device()
-#    pid = device.spawn([PACKAGE])
-#    session = device.attach(pid)
-#    script = session.create_script(script_code)
-#
-#    # Set the callback function to handle messages from the script
-#    script.on("message", on_intent_message)
-#
-#    # Load and run the script
-#    script.load()
-#    device.resume(pid)
+    script_file = "script.js"
+    # Load the script from the file
+    with open(script_file, "r") as f:
+        script_code = f.read()
+
+    # Attach to the app and run the script
+    device = frida.get_usb_device()
+    print("[+] Spawning " + package);
+    pid = device.spawn([PACKAGE])
+    session = device.attach(pid)
+
+    script = session.create_script(script_code)
+
+    # Set the callback function to handle messages from the script
+    script.on("message", on_message)
+
+    # Load and run the script
+    script.load()
+    device.resume(pid)
+
+    API = script.exports
+    #API.dump_dex()
+    API.trace_intent()
+#    dump_dex = script.exports.dump_dex
+#    dump_dex()
 
     # Wait for the script to finish
     input("[+] Press enter to detach...")
 
     # Detach from the app and clean up
-#    session.detach()
-#    device.kill(pid)
+    session.detach()
+    device.kill(pid)
 
 
 # Create an argument parser object
