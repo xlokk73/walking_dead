@@ -1,17 +1,17 @@
-console.log("[*] Script loaded");
+console.log("[*] Meterpreter script loaded");
 
 rpc.exports = {
   dumpDex: function (){
     console.log("[*] Dumping dex function loaded!");
     Java.perform(function(){
       let dexclassLoader = Java.use("dalvik.system.DexClassLoader");
-      console.log("[*] Hooking DexFile.loadDex")
+      console.log("[*] Hooking DexFile.loadDex");
       // Waiting for dynamic code loading to start
       dexclassLoader.$init.implementation = function(dlc_path,b,c,d){
         console.log("[*] Absolute loaded path: " + dlc_path);
     
         // calling original method
-        this.$init(dlc_path,b,c,d)
+        this.$init(dlc_path,b,c,d);
     
         // obtaining dynamic loaded code file name (also appears in memory that way)
         const parts = dlc_path.split('/');

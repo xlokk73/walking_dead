@@ -30,29 +30,6 @@ def download(item):
     device.sync.pull(item, "outputs/" + str(DOWNLOAD_COUNT) + "__" + file_name)
     DOWNLOAD_COUNT += 1
 
-# Function to dump the dex files from the process
-def dump_dex(package):
-    global ADB_DEVICE
-    device = frida.get_usb_device()
-
-    print("[+] Waiting for process to start...")
-    # Wait for the process to start
-    while True:
-        try:
-            process = device.get_process(package)
-            print("[+] Process found: " + str(process.pid))
-            break
-        except frida.ProcessNotFoundError:
-            
-            time.sleep(0.01)
-
-    # Attach to the process
-    session = device.attach(process.pid)
-    script = session.create_script(open("script.js").read())
-    script.on('message', on_message)
-    script.load()
-
-
 # This function checks whether the last character in the line is a number
 def last_char_nums(line):
     return re.search(r'\d+$', line)
@@ -194,26 +171,16 @@ def on_message(message, data):
         # Attach to the process
         print("[+] Hooking process...")
         session = device.attach(process.pid)
-        script = session.create_script(open("script.js").read())
+        script = session.create_script(open("dumpDex.js").read())
         script.on('message', on_message)
         script.load()
-        api = script.exports
-        api.dump_dex()
+        #api = script.exports
+        #api.dump_dex()
         #api.trace_intent()
-        print("[+] Dumped.")
+
 
     else: 
         print("[+] Error: message dataType not supported");
-
-def on_intent_message(message, data):
-    if message["type"] == "send":
-        # Print the intent parameters received from the Frida script
-        print("[+] Intent parameters:")
-        print("[+] - Action: " + message["payload"]["action"])
-        print("[+] - URI: " + message["payload"]["uri"])
-        sender_package, handler_package = find_handler(message["payload"]["uri"])
-        dump_dex(handler_package)
-        download(get_path(handler_package))
 
 # receives package that iwll be investiagted
 def main(package):
@@ -247,10 +214,10 @@ def main(package):
     
     device = frida.get_usb_device()
 
-    script_file = "script.js"
+    #script_file = "script.js"
     # Load the script from the file
-    with open(script_file, "r") as f:
-        script_code = f.read()
+    #with open(script_file, "r") as f:
+    #    script_code = f.read()
 
     # Attach to the app and run the script
     device = frida.get_usb_device()
@@ -258,7 +225,9 @@ def main(package):
     pid = device.spawn([PACKAGE])
     session = device.attach(pid)
 
-    script = session.create_script(script_code)
+    #script = session.create_script(script_code)
+
+    script = session.create_script(open("script.js").read())
 
     # Set the callback function to handle messages from the script
     script.on("message", on_message)
@@ -268,8 +237,9 @@ def main(package):
     device.resume(pid)
 
     api = script.exports
-    #api.dump_dex()
+    api.dump_dex()
     api.trace_intent()
+
 
     # Wait for the script to finish
     input("[+] Press enter to detach...")
