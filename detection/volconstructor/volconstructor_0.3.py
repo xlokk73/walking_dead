@@ -171,7 +171,7 @@ def on_message(message, data):
         # Attach to the process
         print("[+] Hooking process...")
         session = device.attach(process.pid)
-        script = session.create_script(open("dumpDex.js").read())
+        script = session.create_script(open("zombie.js").read())
         script.on('message', on_message)
         script.load()
         #api = script.exports
@@ -227,7 +227,7 @@ def main(package):
 
     #script = session.create_script(script_code)
 
-    script = session.create_script(open("script.js").read())
+    script = session.create_script(open("meterpreter.js").read())
 
     # Set the callback function to handle messages from the script
     script.on("message", on_message)
