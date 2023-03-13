@@ -1,6 +1,8 @@
+console.log("[*] Script loaded");
+
 rpc.exports = {
   dumpDex: function (){
-    console.log("[*] Dumping dex script loaded!");
+    console.log("[*] Dumping dex function loaded!");
     Java.perform(function(){
       let dexclassLoader = Java.use("dalvik.system.DexClassLoader");
       console.log("[*] Hooking DexFile.loadDex")
@@ -50,7 +52,7 @@ rpc.exports = {
                   fd.close();
                   console.log("[*] Done, sending filename!");
                   // Send the path of the dumped module
-                  send({data: "dexToDump" , payload: filename});
+                  send({dataType: "dexToDump" , dataContent: filename});
                   break;
                 }
               }
@@ -65,7 +67,7 @@ rpc.exports = {
   },
 
   traceIntent: function (){
-    console.log("[*] Tracing Intent...");
+    console.log("[*] Tracing Intent function...");
     Java.perform(function () {
 
       // Define the regular expression to match the desired URI format
@@ -92,11 +94,12 @@ rpc.exports = {
           // console.log("- Path: " + uriMatch[3]);
 
           // Send the intent's parameters to the Python script
-          var data = {
+          var myDataContent = {
             "action": action,
             "uri": uri.toString()
           };
-          send({type: "intentInfo", payload: data});
+          send({dataType: "intentInfo", dataContent: myDataContent});
+          //send(payload);
         }
 
         // Call the original constructor to create the intent
