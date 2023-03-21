@@ -222,6 +222,8 @@ def main(package):
     # Attach to the app and run the script
     device = frida.get_usb_device()
     print("[+] Spawning " + package);
+    download(get_path(PACKAGE))
+
     pid = device.spawn([PACKAGE])
     session = device.attach(pid)
 
