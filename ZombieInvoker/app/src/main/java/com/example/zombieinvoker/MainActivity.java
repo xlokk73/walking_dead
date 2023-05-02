@@ -15,11 +15,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Redirect to deeplink via intent
-        Intent viewIntent =
-                new Intent("android.intent.action.VIEW",
-                        Uri.parse("walkingdead://clipboardzombie/?url=http://192.168.1.134:1313"));
-        startActivity(viewIntent);
-
+        // Redirect Chrome to redirection website
+        String url = "http://192.168.1.134:1312";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        intent.setPackage("com.android.chrome");
+        startActivity(intent);
     }
 }

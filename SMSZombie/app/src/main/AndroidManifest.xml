@@ -20,15 +20,17 @@
             android:name=".WebViewActivity"
             android:exported="true">
 
-            <intent-filter>
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:host="smszombie" />
-                <data android:scheme="walkingdead" />
-                <data android:pathPattern=".*" />
+                <data
+                    android:host="192.168.1.134:1312"
+                    android:pathPrefix="/app"
+                    android:scheme="http" />
+
             </intent-filter>
         </activity>
     </application>

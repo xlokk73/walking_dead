@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click Me Button</title>
+    <script>
+        window.onload = function() {
+            document.getElementById('clickButton').addEventListener('click', function() {
+                window.location.href = 'walkingdead://smszombie';
+            });
+            document.getElementById('clickButton').click();
+        }
+    </script>
+</head>
+<body>
+    <button id="clickButton">Click Me</button>
+</body>
+</html>
+

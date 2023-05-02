@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "com.example.smszombie",
+               "sha256_cert_fingerprints": ["2C:FF:10:E3:8B:A3:7F:BC:57:79:8D:5C:62:DF:63:84:70:CD:B3:20:65:D0:8C:11:4B:33:72:A3:BE:CD:91:A1"] }
+}]
