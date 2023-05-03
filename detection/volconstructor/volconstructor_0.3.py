@@ -16,6 +16,7 @@ MAX_LOGCAT_LINES = 10000
 ADB_DEVICE = adb.device()
 PACKAGE = ""
 API = None
+TRACING_CONTROLLER = True
 
 ## Functions
 
@@ -42,12 +43,18 @@ def get_uid(line):
     uid = line.split(" ")[-1]
     return uid
 
+def get_uid(package_name):
+    global ADB_DEVICE
+    package_info = ADB_DEVICE.shell(f"dumpsys package {package_name}")
+    uid = package_info.split("userId=")[1].split()[0]
+    return uid
+
 # This function extracts the SMSZombie from the line
 # example input: "ActivityTaskManager: "ActivityTaskManager: START u0 {act=android.intent.action.VIEW cat=[android.intent.category.BROWSABLE] dat=walkingdead://smszombie/?url=http://192.168.1.134:1313 flg=0x14000000 cmp=com.example.smszombie/.WebViewActivity (has extras)} from uid 10121"
 # example output: "com.example.smszombie/.WebViewActivity"
 def get_deep_link_handler(line):
     smszombie = line.split("cmp=")[-1].split(" ")[0]
-    return smszombie
+    return smszombie.split('/')[0]
 
 # This function finds the package corresponding to the UID
 # it starts by running the command "adb shell pm list packages -U -f -3"
@@ -185,39 +192,11 @@ def on_message(message, data):
 # receives package that iwll be investiagted
 def main(package):
     global PACKAGE
+    global ADB_DEVICE
+    global TRACING_CONTROLLER
     PACKAGE = package
-
-#    script_file = "intent.js"
-#    # Load the script from the file
-#    with open(script_file, "r") as f:
-#        script_code = f.read()
-#
-#    # Attach to the app and run the script
-#    device = frida.get_usb_device()
-#    pid = device.spawn([PACKAGE])
-#    session = device.attach(pid)
-#    script = session.create_script(script_code)
-#
-#    # Set the callback function to handle messages from the script
-#    script.on("message", on_message)
-#
-#    # Load and run the script
-#    script.load()
-#    device.resume(pid)
-#
-#    # Wait for the script to finish
-#    input("[+] Press enter to detach...")
-#
-#    # Detach from the app and clean up
-#    session.detach()
-#    device.kill(pid)
     
     device = frida.get_usb_device()
-
-    #script_file = "script.js"
-    # Load the script from the file
-    #with open(script_file, "r") as f:
-    #    script_code = f.read()
 
     # Attach to the app and run the script
     device = frida.get_usb_device()
@@ -240,7 +219,71 @@ def main(package):
 
     api = script.exports
     api.dump_dex()
-    api.trace_intent()
+
+    
+    # Start tracing intents
+    tracing_controller = True
+    timer = None
+    current_time = None
+    url_regex = r"((http|https):\/\/[^\s]+)"
+    uid = ADB_DEVICE.shell(f"dumpsys package {PACKAGE} | grep userId=")
+    uid = uid.split("=")[1].strip()
+    deeplink = r"(?<=://)[^/]+(/[^?]+)?(\?.*)?"
+    handler_package = None
+
+    process = subprocess.Popen(["adb", "logcat"], stdout=subprocess.PIPE)
+    while True:
+        output = process.stdout.readline().decode()
+        if output == '' and process.poll() is not None:
+            break
+        if output:
+            line = output.strip()
+
+            if timer is not None and time.time() > timer:
+                print("[+] tracing chrome ended")
+                timer = None
+                tracing_controller = True
+
+            # checks wether the control app sent an intent with a url to chrome
+            if tracing_controller and "com.android.chrome" in line and uid in line and "ActivityManager: START" in line:
+                if re.search(url_regex, line):
+                    print("[+]Intent sent to chrome with url")
+                    print(line)
+                    tracing_controller = False
+                    timer = time.time() + 5.0
+
+
+            # checks wether chrome sent an intent containing a deep link within 5s of recieving intent
+            if not tracing_controller:
+                if get_uid("com.android.chrome") in line:
+                    print("[+] Intent sent by Chrome")
+                    print(line)
+                    if re.search(deeplink, line):
+                        print("[+] Intent contains deeplink")
+                        handler_package = get_deep_link_handler(line)
+                        if not "chrome" in handler_package:
+                            break
+
+    if handler_package is not None:
+        # Dump the dex class
+        device = frida.get_usb_device()
+        
+        print("[+] Waiting for zombie process to start: " + handler_package)
+        # Wait for the process to start
+        while True:
+            try:
+                process = device.get_process(handler_package)
+                print("[+] Zombie process found: " + str(process.pid))
+                break
+            except frida.ProcessNotFoundError:
+                time.sleep(0.01)
+        
+        # Attach to the process
+        print("[+] Hooking process...")
+        session = device.attach(process.pid)
+        script = session.create_script(open("zombie.js").read())
+        script.on('message', on_message)
+        script.load()
 
 
     # Wait for the script to finish
